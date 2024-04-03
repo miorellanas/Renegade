@@ -1,0 +1,242 @@
+html:not([data-scroll ='0']){
+    .zone-images{
+        opacity: 0;
+    }
+}
+
+span{
+    display: inline;
+}
+
+
+.carousel-bg{
+    background-image: url(../assets/images/Precaronte.png);
+    background-size: cover;
+}
+
+.carousel{
+    display: flex;
+    color: #fff;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(158, 158, 158, 0) 0%, rgba(176, 176, 176, 0.048) 75%, rgb(0, 0, 0) 100%);
+    backdrop-filter: blur(10px);
+    background-color: rgba(5, 5, 5, 0.2);
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.carousel-h{
+    position: absolute;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 150%;
+    font-weight: 900;
+}
+
+.carousel-info{
+    display: flex;
+    width: 100%;
+    height: 700px;
+    justify-content: center;
+    align-content: center;
+    background-color: #010101;
+}
+
+.item-info{
+    display: flex;
+    margin-top: 50px;
+    height: 500px;
+    width: 50%;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.zone-info{
+    height: 100px;
+    width: 50%;
+    text-align: center;
+}
+
+.icon-info{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(238, 238, 238);
+    font-family: Times, 'Times New Roman', serif;
+    font-size: 120%;
+    font-weight: 400;
+    width: 50%;
+    
+}
+
+.lore-info{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    color: rgb(243, 243, 243);
+    font-family: Times, 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+
+}
+
+.lore-info p{
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+.object-info{
+    margin: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0;
+}
+
+
+
+.zone-icon{
+    display: flex;
+    justify-content:baseline;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.zone-item{
+    height: 70px;
+    width: 100px;
+    justify-content: center;
+    align-content: center;
+}
+
+
+p{
+    flex-grow: 1;
+    text-align: left;
+    margin-left: 0;
+    font-size: 1rem;
+}
+
+.zone-icon.img{
+    align-self: flex-start;
+}
+
+
+.r-btn{
+    top: 50%;
+    left: 85%;
+}
+
+.l-btn{
+    top: 50%; 
+    left: 15%;
+}
+
+.ca-1{
+    top: 90%;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-size: 400%;
+    font-weight: 900;
+    left: 50%;
+}
+
+.ca-2{
+    left: 50%;
+}
+
+.zone-images{ 
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.tittle-info{
+    margin: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.info{
+    margin: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    color: #fff;
+}
+
+.icon-img{
+    vertical-align: top;
+}
+
+
+
+@media( max-width: 800px){
+
+    .ca-1{
+        font-size: 2rem;
+    }
+
+    .ca-2{
+        font-size: .7rem;
+    }
+    
+    .item-info{
+        justify-content: center;
+        margin-top: 50px;
+        width: 75%;
+    }
+
+    .icon-info{
+        text-align: center;
+    }
+
+    .zone-icon{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+    }
+    .zone-info{
+        text-align: center;
+        font-size: .7rem;
+    }
+
+    .icon-img{
+        width: 30px;
+    }
+
+    .lore-info p{
+        font-size: .7rem;
+    }
+
+    .zone-item{
+        height: 30px;
+    }
+
+    p{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+
+} 
+
+@media( max-width: 550px){
+    .ca-1{
+        font-size: 1.5rem;
+    }
+
+    .ca-2{
+        font-size: .5rem;
+    }
+}
