@@ -1,0 +1,40 @@
+.body{
+    display: flex;
+
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.weapons{
+    display: flex;
+    margin-top: 100px;
+    height: 1000px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 10px;
+    background-color: rgb(19, 19, 19);
+}
+
+.weapon-grid{
+    display: flex;
+    margin-top: 100px;
+    height: 1000px;
+    width: 1500px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.weapons-holder{
+    display: flex;
+}
+
+.weapon-item{
+    width: 300px;
+    border: 1px;
+}
