@@ -8,7 +8,7 @@
 
 .weapons{
     display: flex;
-    margin-top: 100px;
+    margin-top: 80px;
     height: 1000px;
     width: 100%;
     justify-content: center;
@@ -20,7 +20,6 @@
 
 .weapon-grid{
     display: flex;
-    margin-top: 100px;
     height: 1000px;
     width: 1500px;
     justify-content: center;
@@ -37,4 +36,58 @@
 .weapon-item{
     width: 300px;
     border: 1px;
+}
+
+h1{
+    font-size: 1.5rem;
+    color: rgb(245, 245, 245);
+}
+
+.h1-variant{
+    font-size: 4rem;
+    color: rgb(245, 245, 245);
+
+}
+
+p{
+    font-size: .8rem;
+    margin-top: 20px;
+}
+
+@media( max-width: 1500px){
+
+    .weapons{
+        margin-top: 150px;
+    }
+
+    .weapon-grid{
+        width: 1000px;
+    }
+
+    .weapon-img{
+        width: 200px;
+    }
+
+    .weapon-item{
+        width: 200px;
+    }
+}
+
+@media( max-width: 800px){
+
+    .weapons{
+        margin-top: 150px;
+    }
+
+    .weapon-grid{
+        width: 100%;
+    }
+
+    .weapon-img{
+        width: 200px;
+    }
+
+    .weapon-item{
+        width: 200px;
+    }
 }
