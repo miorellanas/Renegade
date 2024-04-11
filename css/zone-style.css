@@ -137,6 +137,12 @@ p{
     left: 15%;
 }
 
+button{
+    font-size: 2rem;
+    color: #e7e7e74b;
+    background-color: #ffffff00;
+}
+
 .ca-1{
     top: 90%;
     font-family: Georgia, Times, 'Times New Roman', serif;

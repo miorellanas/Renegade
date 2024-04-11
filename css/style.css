@@ -1,7 +1,9 @@
 body{
-    background-color: rgb(4, 4, 4);
+    background-color: rgb(30, 30, 30);
     margin: 0;
 }
+
+
 
 .container {
     display: flex;
@@ -11,7 +13,7 @@ body{
     padding: 0px;
     text-align: center;
     justify-items: center;
-    background-color: #110f0e;
+    background-color: #111111;
     /* background-image: url("../assets/Banner test.png"); */
     border-radius: 0%;
     flex-direction: row;
@@ -19,11 +21,11 @@ body{
 
 .main{
     background-image: url("../assets/Banner2.png");
-    background-color: #000000;
+    background-color: #111111;
 }
 
 .zone{
-    background-color: #1c1917;
+    background-color: #111111;
 }
 
 .mainH1{
@@ -41,12 +43,13 @@ body{
     height: auto;
     align-items: center;
     justify-content: center;
+    box-shadow: inset 100px 100px 100px 100px rgb(0, 0, 0)
 }
 
 .top-bar{
     display: flex;
     position: fixed;
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(8, 8, 8);
     width: 100%;
     height: 80px;
     top: 0;
@@ -94,8 +97,8 @@ body{
 
 }
 .playnow{
-    background-color: rgb(89, 0, 0);
-    color: rgb(249, 249, 249);
+    background-color: rgb(78, 0, 0);
+    color: rgb(191, 191, 191);
     width: auto;
     padding-left: 20px;
     padding-right: 20px;
@@ -105,6 +108,13 @@ body{
     font-size: 16px;
     font-family: 'Times New Roman', serif;;
     font-weight: 600;
+
+    transition: background-color 1s;
+}
+
+.playnow:hover{
+    background-color: rgb(155, 0, 0);
+    color: rgb(239, 239, 239);
 }
 
 .test-play-now{
@@ -302,6 +312,7 @@ a{
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+    transition: color .5s;
 }
 
 .page-btn{
@@ -314,17 +325,20 @@ a{
 }
 
 a:link {
-    color: #890e0e;
+    color: #ededed;
+}
+
+a:disabled{
+    color: #363636;
 }
 
 a:visited {
-    color: #7a0000;
+    color: rgb(240, 240, 240);
 }
 
 a:focus {
     background: #ffffff00;
 }
-
 
 a:active {
     background: #ffffff00;
@@ -375,6 +389,9 @@ span{
 
 video{
     opacity: 100%;
+    filter: brightness(70%);
+    box-shadow: inset 100px 100px 100px rgba(24, 24, 24, 0.579);
+    z-index: -1;
 }
 
 footer{
