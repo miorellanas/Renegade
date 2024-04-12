@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renegade</title>
+    <link rel="icon" type="image/x-icon" href="./assets/RenegadeIcon(1).png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/game-style.css">
+    <script src="./js/index.js" defer></script>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="bar icon"><a href="./index.html"><img src="./assets/RenegadeIcon(1).png" alt="Icon" width="100%"></a></div>
+        <div class="bar bar-btn1"><a href="./game.html" class="menu"> JUEGO </a></div>
+        <div class="bar bar-btn2"><a href="./zones.html" class="menu"> ZONAS </a></div>
+        <div class="bar bar-btn3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
+        <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
+        <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
+        <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
+        <div class="bar bar-btn7"><a href="./store.html" class="menu"> TIENDA </a></div>
+        <div class="bar display-btn"><button><img src="./assets/DisplayIcon.png" alt="display" width="100%"></button></div>
+        <div class="bar playnow-btn"><button class="playnow" onclick="popup()">JUGAR AHORA</button></div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="popup">
+            <div class="bar playnow-btn"><button class="close" onclick="popup()">X</button></div>
+            <div class="message">ESTE PRODUCTO PUEDE INCLUIR CONTENIDO NO APTO
+                PARA TODAS LAS EDADES O PARA VERLO EN EL TRABAJO.
+            </div>
+            <div class="message m2">Introduce tu fecha de nacimiento para continuar:</div>
+            <div class="message m2"><input type="date" id="date" name="trip-start" value="2024-01-01" min="1910-01-01" max="2030-12-31" /></div>
+            <div class="message m2"><button class="continue-btn" id="continue">Continuar</button></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <div class="container main">
+            <div class="text tittle">Ante las puertas del infierno</div>
+            <div class="text subTittle">Enfoque</div>
+            <div class="text paragraph">Renegade se basa en un estilo de juego rápido, intentando simular un hack and slash
+                en 2d, provocando
+                múltiples situaciones de combates contra oleadas de enemigos, teniendo las herramientas o no para
+                combatirlos, usando ataques con daño en área, empujes e interacciones, fomentando mucho la movilidad del
+                jugador y la velocidad en el plataformeo, con rango de aprendizaje y mucha masterización, peleando contra
+                enemigos tanto abominables como asquerosos en escenarios
+                representando los pisos del infierno.
+            </div>
+            <div class="text subTittle">Historia</div>
+            <div class="text paragraph">Estamos aproximadamente en el año 1200, los templarios están en su cúspide y desean
+                el poder del Santo
+                Grial, aquí es donde entra nuestro héroe Manuel, general de un pelotón de 8 hombres, una de las
+                escuadras más fuertes, al comenzar una de sus cuantas búsquedas del Santo Grial, Manuel y compañía son
+                emboscados por una horda de tropas musulmanes perdiendo la vida en la pelea (esto el jugador solo lo
+                vería como una pantalla de Game Over común y corriente) la realidad es que ahora están en el infierno,
+                todo el lugar parece el mismo, solo que ya no hay tropas musulmanes, el camino parece despejado y la
+                misión de ir a por el Santo Grial es retomada.
+    
+                <br><br><br>
+                Manuel está llegando a un bosque que destaca por su silencio, este se encuentra infectado por avispas
+                como gusanos, abundan los cadáveres. El camino se ve muy difícil para nuestros héroes, peleando para no
+                ser abrumados por los insectos, entre la neblina se encuentran a Caronte, barquero que nos señala que
+                nuestro camino deberá continuar con él, una vez llegamos al destino indicado por Caronte la neblina se
+                vuelve muy densa, el barquero se desvanece en segundos y la visión es limitada. Entre la neblina se
+                alcanza a ver un hombre gigante portando una corona, sentado con una mirada fría observa la llegada de
+                Manuel, en un instante atrapa a los compañeros del héroe, no es un hombre, es una criatura, que con sus
+                tentáculos comienza a envolver a las tropas, Manuel está indefenso, pelear no es una opción, y solo
+                quedan segundos para ser atrapado por Minos, solo queda escapar, el camino ya no es el mismo, no está la
+                laguna de Caronte y debido a la neblina te encuentras perdido, escapando de Minos, encuentras un lugar
+                muy diferente, acabas de entrar en el primero de los 9 pisos del infierno donde deberás buscar una
+                respuesta a tu estadía en el infierno, o llevar al límite tu rencor volviéndote parte del infierno.
+            </div>
+            <div class="text subTittle">Gameplay</div>
+            <div class="text paragraph">El jugador deberá enfrentar los diferentes desafíos que se le impondrán en los 9
+                pisos del infierno, manteniendo una estructura bastante similar en los 9, (llegar al piso como tal, obtener
+                un objeto que abrirá una mazmorra dentro del piso, resolver la mazmorra a través de peleas y puzles,
+                derrotar un jefe y obtener un arma que agilizará el combate en el siguiente piso, pudiendo conseguir
+                variantes del mismo arma, así como una variante normal, manteniendo la fe del jugador o una versión maldita
+                provocando que el jugador no tenga vuelta atrás considerando al jugador como un traicionero por darle la
+                espalda a su fe a costa de sobrevivir)
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>

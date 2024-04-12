@@ -13,80 +13,91 @@
 
 <body>
     <div class="top-bar">
-        <div class="bar icon"><a href="./index.html"><img src="./assets/RenegadeIcon(1).png" alt="Icon"width="100%"></a></div>
-        <div class="bar bar-btn1"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu"> JUEGO </a></div>
+        <div class="bar icon"><a href="./index.html"><img src="./assets/RenegadeIcon(1).png" alt="Icon" width="100%"></a></div>
+        <div class="bar bar-btn1"><a href="./game.html" class="menu"> JUEGO </a></div>
         <div class="bar bar-btn2"><a href="./zones.html" class="menu"> ZONAS </a></div>
         <div class="bar bar-btn3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
-        <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu"> OBJETOS </a></div>
-        <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu"> ENEMIGOS </a></div>
-        <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu">ACTUALIZACIONES</a></div>
-        <div class="bar bar-btn7"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu"> SOBRE NOSOTROS</a></div>
+        <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
+        <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
+        <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
+        <div class="bar bar-btn7"><a href="./store.html" class="menu"> TIENDA </a></div>
         <div class="bar display-btn"><button><img src="./assets/DisplayIcon.png" alt="display" width="100%"></button></div>
-        <div class="bar playnow-btn"><button class="playnow">JUGAR AHORA</button></div>
+        <div class="bar playnow-btn"><button class="playnow" onclick="popup()">JUGAR AHORA</button></div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="popup">
+            <div class="bar playnow-btn"><button class="close" onclick="popup()">X</button></div>
+            <div class="message">ESTE PRODUCTO PUEDE INCLUIR CONTENIDO NO APTO
+                PARA TODAS LAS EDADES O PARA VERLO EN EL TRABAJO.
+            </div>
+            <div class="message m2">Introduce tu fecha de nacimiento para continuar:</div>
+            <div class="message m2"><input type="date" id="date" name="trip-start" value="2024-01-01" min="1910-01-01" max="2030-12-31" /></div>
+            <div class="message m2"><button class="continue-btn" id="continue">Continuar</button></div>
+        </div>
     </div>
 
-    <div class="container weapons">
-        <div class="card">
-            <img src="./assets/CartaEspada.png" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Espada Templaria</div>
+    <div class="container-body">
+        <div class="container weapons">
+            <div><h1>DOMINA TODAS LAS</h1> 
+            <H1 class="h1-variant">ARMAS</H1> </div>
+            
+            <p>Dentro del infierno se encuentra una gran variedad de armas, pues a lo largo del
+                camino podrás ampliar tu arsenal obteniendo las armas de los guardianes de
+                cada piso del infierno despues de haberlos derrotado.
+            </p>
+
+            <div class="card">
+                <img src="./assets/CartaEspada.png" alt="" heigh="408px" width="264px">
+                <div class="card-data">
+                    <div class="card-name">Espada Templaria</div>
+                    <div class="card-type" >Arma Común</div>
+                    <div class="card-description" >Daño: 3/5</div>
+                    <div class="card-description" >Velocidad: 3/5</div>
+                    <div class="card-description" >Levantamiento: 2/5</div>
+                    <div class="card-description" >Defensa: 3/5</div>
+                    <div class="card-description habilidad" >Habilidad: Voltereta Cortante</div>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <img src="./assets/CartaLanza.png" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Lanza Romana</div>
+            <div class="card">
+                <img src="./assets/CartaLanza.png" alt="" heigh="408px" width="264px">
+                <div class="card-data">
+                    <div class="card-name">Lanza Romana</div>
+                    <div class="card-type" >Arma Común</div>
+                    <div class="card-description" >Daño: 2/5</div>
+                    <div class="card-description" >Velocidad: 5/5</div>
+                    <div class="card-description" >Levantamiento: 3/5</div>
+                    <div class="card-description" >Defensa: 1/5</div>
+                    <div class="card-description habilidad" >Habilidad: Estocada</div>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <img src="./assets/CartaHacja.png" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Hacha de combate</div>
+            <div class="card">
+                <img src="./assets/CartaHacja.png" alt="" heigh="408px" width="264px">
+                <div class="card-data">
+                    <div class="card-name" >Hacha de Guerra</div>
+                    <div class="card-type" >Arma Común</div>
+                    <div class="card-description" >Daño: 4/5</div>
+                    <div class="card-description" >Velocidad: 1/5</div>
+                    <div class="card-description" >Levantamiento: 2/5</div>
+                    <div class="card-description" >Defensa: 4/5</div>
+                    <div class="card-description habilidad" >Habilidad: Giro Decapitante</div>
+                </div>
             </div>
-        </div>
-        <div class="card">
-            <img src="./assets/MazeCard.gif" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Maza Maldita</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./assets/CartaEspada.png" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Espada Templaria</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./assets/CartaLanza.png" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Lanza Romana</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./assets/CartaHacja.png" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Hacha de combate</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="./assets/MazeCard.gif" alt="" heigh="408px" width="264px">
-            <div class="overlay">
-                <div class="text">Maza Maldita</div>
+            <div class="card">
+                <img src="./assets/MazeCard.gif" alt="" heigh="408px" width="264px">
+                <div class="card-data">
+                    <div class="card-name">Martillo de Hueso</div>
+                    <div class="card-type" >Arma Maldita</div>
+                    <div class="card-description" >Daño: 5/5</div>
+                    <div class="card-description" >Velocidad: 3/5</div>
+                    <div class="card-description" >Levantamiento: 4/5</div>
+                    <div class="card-description" >Defensa: 5/5</div>
+                    <div class="card-description habilidad" >Habilidad: Desprende Cabezas</div>
+                </div>
             </div>
         </div>
     </div>
-    
-
 </body>
 
 <!--<div class="text-container">
-        <h1>DOMINA TODAS LAS</h1>
-        <H1 class="h1-variant">ARMAS</H1> 
-    </div>
-
         
-
-        <p>Dentro del infierno se encuentra una gran variedad de armas, pues a lo largo del
-            camino podrás ampliar tu arsenal obteniendo las armas de los guardianes de
-            cada piso del infierno despues de haberlos derrotado.</p>
         -->

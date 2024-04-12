@@ -10,6 +10,9 @@ var objectName = document.getElementById("objectName");
 var weaponName = document.getElementById("weaponName");
 var bossName = document.getElementById("bossName");
 
+var modal = document.getElementById("modal");
+
+
 
 
 let zoneBackgroundA = ["url(./assets/images/Precaronte.png)", "url(./assets/images/Limbo.png)",
@@ -87,6 +90,18 @@ function pausar() {
     } else {
         audioControl.pause();
         iconButton.src = "./assets/MusicDesactive.png"
+    }
+}
+
+function popup(){
+    console.log("mentita");
+    if(modal.style.display == "flex"){
+      console.log("flexeo")
+      modal.style.display = "none"
+    }
+    else{
+      console.log("no flexeo")
+      modal.style.display = "flex"
     }
 }
 

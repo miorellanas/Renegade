@@ -137,7 +137,7 @@ p{
     left: 15%;
 }
 
-button{
+button .ca-btn{
     font-size: 2rem;
     color: #e7e7e74b;
     background-color: #ffffff00;
