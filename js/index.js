@@ -15,6 +15,8 @@ var modal = document.getElementById("modal");
 
 
 
+
+
 let zoneBackgroundA = ["url(./assets/images/Precaronte.png)", "url(./assets/images/Limbo.png)",
                         "url(./assets/images/Violencia.png)"];
 
@@ -38,6 +40,23 @@ zoneImage.src = zoneImageA[carouselIndex];
 zoneName.innerHTML = zoneNameA[carouselIndex];
 
 zoneSubTittle.innerHTML = zoneSubTittleA[carouselIndex];
+
+/*
+var options_str = "";
+
+cars.forEach( function(car) {
+  options_str += '<option value="' + car + '">' + car + '</option>';
+});
+
+sel.innerHTML = options_str;
+*/
+
+
+
+
+
+
+
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -144,4 +163,6 @@ function prevObject() {
 
     console.log("funciono prev " + carouselIndex);
 }
+
+
 
