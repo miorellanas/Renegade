@@ -12,6 +12,8 @@ var bossName = document.getElementById("bossName");
 
 var modal = document.getElementById("modal");
 
+var TopMenu = document.getElementById("TopMenu");
+
 
 
 
@@ -122,6 +124,19 @@ function popup(){
       console.log("no flexeo")
       modal.style.display = "flex"
     }
+}
+
+function TopBar(){
+
+  if(TopMenu.style.display == "flex"){
+    console.log("flexeo")
+    TopMenu.style.display = "none"
+  }
+  else{
+    console.log("no flexeo")
+    TopMenu.style.display = "flex"
+  }
+
 }
 
 function nextObject() {
