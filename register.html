@@ -25,18 +25,29 @@
             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         }
 
+
         $(document).ready(function () {
+
+            
+
             /* Forma Jquery */
             let user = $("#user");
             /* Forma JS */
             let pass = $("#pass");
             let rol = $("#optRol");
 
+            let seclevel = $("#sec-level");
+            let level = $("#level");
+            let mayus = $("#mayus");
             let letters = $("#letters");
             let numbers = $("#numbers");
             let special = $("#special");
 
             var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var maFormat = /[A-Z]/;
+    
+            var passCheck = new Array(4).fill(false);
+            console.log(passCheck);
 
             /* Ejemplo de JSON construido */
             let login = {
@@ -49,14 +60,14 @@
 
 
             $("#btnValidar").click(function () {
-                $("#btnSub").toggle(500);
-                $("#btnRes").toggle(500);
+                
+
                 login.username = user.val();
                 login.password = pass.value;
                 login.role = rol.val();
                 console.log(login);
             })
-            user.keydown(function () {
+            user.keyup(function () {
                 if (String(user.val()).length <= 3) {
                     user.css("border","3px solid red");
                 } else {
@@ -64,30 +75,82 @@
                 }
             })
 
-            pass.keydown(function(){
-                console.log("hola");
+            pass.focus(function () {
+                seclevel.toggle(500);
+                mayus.toggle(500);
+                letters.toggle(500);
+                numbers.toggle(500);
+                special.toggle(500);
+            })
+
+            pass.keyup(function(){
+
                 if (String(pass.val()).length >= 6) {
                     letters.css("color", "green");
+                    passCheck[0] = true;
                 }
                 else if(String(pass.val()).length < 6){
                     letters.css("color", "rgb(116, 116, 116)");
+                    passCheck[0] = false;
                     /*rgb(116, 116, 116)*/
                 }
 
                 if(/\d/.test(String(pass.val()))){
                     numbers.css("color", "green");
+                    passCheck[1] = true;
                 }
                 else if(!/\d/.test(String(pass.val()))){
                     numbers.css("color", "rgb(116, 116, 116)");
+                    passCheck[1] = false;
                 }
 
-                if(format.test(string)){
-                    return true;
-                } else {
-                    return false;
-                }
-            })
+    
+                if(format.test(String(pass.val()))){
+                    special.css("color", "green");
+                    passCheck[2] = true;
 
+                } 
+                else {
+                    special.css("color", "rgb(116, 116, 116)");
+                    passCheck[2] = false;
+                }
+
+                
+                if(maFormat.test(String(pass.val()))){
+                    mayus.css("color", "green");
+                    passCheck[3] = true;
+                    
+                }
+                else{
+                    mayus.css("color", "rgb(116, 116, 116)");
+                    passCheck[3] = false;
+                }
+
+                if(passCheck.filter(Boolean).length == 0){
+                    level.css("background-color", "rgb(31, 31, 31)")
+                    level.css("width", "0%")
+                }
+
+                if(passCheck.filter(Boolean).length == 1){
+                    level.css("background-color", "rgb(132, 7, 7)")
+                    level.css("width", "25%")
+                }
+
+                if(passCheck.filter(Boolean).length == 2){
+                    level.css("background-color", "rgb(152, 53, 7)")
+                    level.css("width", "50%")
+                }
+
+                if(passCheck.filter(Boolean).length == 3){
+                    level.css("background-color", "rgb(152, 142, 7)")
+                    level.css("width", "75%")
+                }
+
+                if(passCheck.filter(Boolean).length == 4){
+                    level.css("background-color", "rgb(41, 152, 7)")
+                    level.css("width", "100%")
+                }
+            })       
         })
     </script>
 </head>
@@ -118,24 +181,36 @@
     <div class="container-body">
         <div class="container main">
             <form action="">
-                <div>
-                    <label for="nom_completo">Usuario:</label>
-                    <input type="text" name="nom_completo" id="user" placeholder="Ingrese su nombre de usuario">
-                </div>
-                <div>
-                    <label for="rut">Correo:</label>
-                    <input type="text" name="pass" id="email" placeholder="Ingrese su correo electronico">
-                </div>
-                <div>
-                    <label for="rut">Contraseña:</label>
-                    <input type="password" name="pass" id="pass" placeholder="Ingrese contraseña">
+
+                <div class="form">
+                    <div class="item txt"><label for="nom_completo">Usuario:</label></div>
+                    <div class="item inp"><input type="text" name="nom_completo" id="user" placeholder="Ingrese su nombre de usuario"></div>
                 </div>
 
-                <div class="security-level">
+                <div class="form">
+                    <div class="item txt"><label for="rut">Correo:</label></div>
+                    <div class="item inp"><input type="text" name="pass" id="email" placeholder="Ingrese su correo electronico"></div>
+                </div>
+
+                <div class="form">
+                    <div class="item txt"><label for="rut">Contraseña:</label></div>
+                    <div class="item inp"><input type="password" name="pass" id="pass" placeholder="Ingrese contraseña"></div>
+                </div>
+
+                
+                <div class="security-level" id="sec-level">
                     <div class="level" id="level"></div>
-                    <div class="sec letters" id="letters"> Tiene mas de 6 carácteres </div>
-                    <div class="sec numbers" id="numbers"> Tiene carácteres numéricos </div>
-                    <div class="sec special" id="special"> Tiene carácteres especiales </div>
+                </div>
+                <div class="sec mayus" id="mayus"> Tiene al menos una mayúscula </div>
+                <div class="sec letters" id="letters"> Tiene más de 6 carácteres </div>
+                <div class="sec numbers" id="numbers"> Tiene carácteres numéricos </div>
+                <div class="sec special" id="special"> Tiene carácteres especiales </div>
+                
+                
+                <div class="form">
+
+                    <div class="item txt"><label for="rut">Repetir Contraseña:</label></div>
+                    <div class="item inp"><input type="password" name="repass" id="repass" placeholder="Ingrese contraseña nuevamente"></div>
                 </div>
 
                 <!--
