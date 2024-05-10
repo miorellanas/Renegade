@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renegade</title>
+    <link rel="icon" type="image/x-icon" href="./assets/RenegadeIcon(1).png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/register-style.css">
+    <script src="./js/index.js" defer></script>
+    <script src="./js/validaciones.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+
+        $(document).ready(function () {
+            /* Forma Jquery */
+            let user = $("#user");
+            /* Forma JS */
+            let pass = $("#pass");
+            let rol = $("#optRol");
+
+            let letters = $("#letters");
+            let numbers = $("#numbers");
+            let special = $("#special");
+
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            /* Ejemplo de JSON construido */
+            let login = {
+                /* "atributo":"valor" */
+                "username": "",
+                "password": "",
+                "role": ""
+            }
+            console.log(login)
+
+
+            $("#btnValidar").click(function () {
+                $("#btnSub").toggle(500);
+                $("#btnRes").toggle(500);
+                login.username = user.val();
+                login.password = pass.value;
+                login.role = rol.val();
+                console.log(login);
+            })
+            user.keydown(function () {
+                if (String(user.val()).length <= 3) {
+                    user.css("border","3px solid red");
+                } else {
+                    user.css("border", "3px solid green");
+                }
+            })
+
+            pass.keydown(function(){
+                console.log("hola");
+                if (String(pass.val()).length >= 6) {
+                    letters.css("color", "green");
+                }
+                else if(String(pass.val()).length < 6){
+                    letters.css("color", "rgb(116, 116, 116)");
+                    /*rgb(116, 116, 116)*/
+                }
+
+                if(/\d/.test(String(pass.val()))){
+                    numbers.css("color", "green");
+                }
+                else if(!/\d/.test(String(pass.val()))){
+                    numbers.css("color", "rgb(116, 116, 116)");
+                }
+
+                if(format.test(string)){
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="bar icon"><a href="./index.html"><img src="./assets/RenegadeIcon(1).png" alt="Icon" width="100%"></a></div>
+        <div class="bar bar-btn1"><a href="./game.html" class="menu"> JUEGO </a></div>
+        <div class="bar bar-btn2"><a href="./zones.html" class="menu"> ZONAS </a></div>
+        <div class="bar bar-btn3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
+        <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
+        <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
+        <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
+        <div class="bar bar-btn7"><a href="./store.html" class="menu"> TIENDA </a></div>
+        <div class="bar display-btn"><button onclick="TopBar()"><img src="./assets/DisplayIcon.png" alt="display" width="100%"></button></div>
+        <div class="bar playnow-btn"><button class="playnow"">JUGAR AHORA</button></div>
+    </div>
+
+    <div class="top-bar-display" id="TopMenu">
+        <div class="bar-b bar-btnB1"><a href="./game.html" class="menu"> JUEGO </a></div>
+        <div class="bar-b bar-btnB2"><a href="./zones.html" class="menu"> ZONAS </a></div>
+        <div class="bar-b bar-btnB3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
+        <div class="bar-b bar-btnB4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
+        <div class="bar-b bar-btnB5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
+        <div class="bar-b bar-btnB6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
+        <div class="bar-b bar-btnB7"><a href="./store.html" class="menu"> TIENDA </a></div>
+    </div>
+    <div class="container-body">
+        <div class="container main">
+            <form action="">
+                <div>
+                    <label for="nom_completo">Usuario:</label>
+                    <input type="text" name="nom_completo" id="user" placeholder="Ingrese su nombre de usuario">
+                </div>
+                <div>
+                    <label for="rut">Correo:</label>
+                    <input type="text" name="pass" id="email" placeholder="Ingrese su correo electronico">
+                </div>
+                <div>
+                    <label for="rut">Contraseña:</label>
+                    <input type="password" name="pass" id="pass" placeholder="Ingrese contraseña">
+                </div>
+
+                <div class="security-level">
+                    <div class="level" id="level"></div>
+                    <div class="sec letters" id="letters"> Tiene mas de 6 carácteres </div>
+                    <div class="sec numbers" id="numbers"> Tiene carácteres numéricos </div>
+                    <div class="sec special" id="special"> Tiene carácteres especiales </div>
+                </div>
+
+                <!--
+                <div>
+                    <input type="submit" value="Ingresar">
+                    <input type="reset" value="Limpiar">
+                </div>
+
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            -->
+            </form>
+        </div>
+    </div>
+
+
+    
+</body>
