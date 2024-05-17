@@ -1,44 +1,58 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 .container-body{
     display: flex;
     width: 100%;
     height: 100%;
+    min-height: 100%;
+    max-height: 100%;
     justify-content: center;
+    align-items: center;
+    background-image: url(/assets/images/backgroundArt.jpg);
+    background-size: cover;
 }
 
 .main{
     display: flex;
     background-size:contain;
     background-image: url("Renegade/assets/bgTest.png");
-    margin-top: 80px;
-    height: 2000px;
-    width: 1000px;
-    border: 0px solid rgb(35, 35, 35);
+    height: 600px;
+    width: 600px;    border: 0px solid rgb(35, 35, 35);
     flex-direction: column;
-    padding-top: 50px;
+    justify-content: center;
     align-items: center;
     -webkit-box-shadow: 10px 10px 92px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 92px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 92px 0px rgba(0,0,0,0.75);
+    background-color: rgba(16, 18, 18, 0.933);
+    border-radius: 2px;
+    
     
 }
 
+
 .security-level{
     display: flex;
-    margin-top: 10px;
+    margin-top: 35px;
     margin-bottom: 10px;
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(0, 0, 0);
     height: 10px;
     width: 200px;
     border-radius: 5px;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .level{
-    width: 100%;
+    width: 0%;
     height: 100%;
     background-color: rgb(31, 31, 31);
     border-radius: 5px;
+    transition: width 0.5s, background-color 1s;
 }
+
 
 .sec{
 
@@ -49,10 +63,15 @@
 .form{
     display: flex;
     height: fit-content;
-    width: 360px;
+    width: 450px;
     border: 0px solid white;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    
 }
 
 .item{
@@ -71,8 +90,31 @@
     justify-content: flex-end;
 }
 
+.logo-hdr{
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 50px;
+    left: 50px;
+}
+
+.bottom-ftr{
+    display: flex;
+    width: 500px;
+    top: 90%;
+    margin-left: 50px;
+    color: rgba(255, 255, 255, 0.468);
+    position: fixed;
+}
+
 input{
     width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(8, 8, 8);
+    color: white;
+    border: 0;
+    font-size: .7rem;
+    font-weight: 700;
 }
 
 label{

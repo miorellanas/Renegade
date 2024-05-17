@@ -25,16 +25,12 @@
             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         }
 
-
         $(document).ready(function () {
 
-            
-
-            /* Forma Jquery */
             let user = $("#user");
-            /* Forma JS */
+            let email = $("#email");
             let pass = $("#pass");
-            let rol = $("#optRol");
+            let repass = $("#repass");
 
             let seclevel = $("#sec-level");
             let level = $("#level");
@@ -43,45 +39,91 @@
             let numbers = $("#numbers");
             let special = $("#special");
 
+            let sumbit = $("#sumbit-input");
+
+            let all = false;
+
             var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
             var maFormat = /[A-Z]/;
     
             var passCheck = new Array(4).fill(false);
             console.log(passCheck);
-
-            /* Ejemplo de JSON construido */
+ 
             let login = {
-                /* "atributo":"valor" */
                 "username": "",
-                "password": "",
-                "role": ""
+                "email": "",
+                "password": ""
             }
             console.log(login)
 
 
             $("#btnValidar").click(function () {
-                
-
+            
                 login.username = user.val();
+                login.email = email.val();
                 login.password = pass.value;
-                login.role = rol.val();
                 console.log(login);
             })
+
+            function enableButton(){
+                sumbit.css("color", "rgb(124, 9, 9)");
+                sumbit.css("background-color", "rgb(13, 13, 13)");
+                sumbit.css("border", "0px");
+                sumbit.css("cursor", "pointer");
+                sumbit.prop('disabled', false);
+            }
+
+            function disableButton(){
+                sumbit.css("color", "rgb(13, 13, 13)");
+                sumbit.css("background-color", "rgb(13, 13, 13, 0)");
+                sumbit.css("border", "1px solid rgb(0, 0, 0)");
+                sumbit.css("cursor", "not-allowed");
+                sumbit.prop('disabled', true);
+            }
+
+
             user.keyup(function () {
                 if (String(user.val()).length <= 3) {
                     user.css("border","3px solid red");
                 } else {
                     user.css("border", "3px solid green");
                 }
+
+                if(user.val().length >= 1 && email.val().length >= 1 && pass.val().length >= 1 && repass.val().length >= 1){
+                    enableButton();
+                }
+                else{
+                    disableButton();
+                    
+                }
             })
 
+            email.keyup(function () {
+                if(user.val().length >= 1 && email.val().length >= 1 && pass.val().length >= 1 && repass.val().length >= 1){
+                    enableButton();
+                }
+                else{
+                    disableButton();
+                }
+            })
+
+            repass.keyup(function () {
+                if(user.val().length >= 1 && email.val().length >= 1 && pass.val().length >= 1 && repass.val().length >= 1){
+                    enableButton();
+                }
+                else{
+                    disableButton();
+                }
+            })
+
+            /*
             pass.focus(function () {
                 seclevel.toggle(500);
                 mayus.toggle(500);
                 letters.toggle(500);
                 numbers.toggle(500);
                 special.toggle(500);
-            })
+            })*/
 
             pass.keyup(function(){
 
@@ -150,57 +192,47 @@
                     level.css("background-color", "rgb(41, 152, 7)")
                     level.css("width", "100%")
                 }
+
+                if(user.val().length >= 1 && email.val().length >= 1 && pass.val().length >= 1 && repass.val().length >= 1){
+                    enableButton();
+                }
+                else{
+                    disableButton();
+                }
             })       
         })
     </script>
 </head>
 
 <body>
-    <div class="top-bar">
-        <div class="bar icon"><a href="./index.html"><img src="./assets/RenegadeIcon(1).png" alt="Icon" width="100%"></a></div>
-        <div class="bar bar-btn1"><a href="./game.html" class="menu"> JUEGO </a></div>
-        <div class="bar bar-btn2"><a href="./zones.html" class="menu"> ZONAS </a></div>
-        <div class="bar bar-btn3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
-        <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
-        <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
-        <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
-        <div class="bar bar-btn7"><a href="./store.html" class="menu"> TIENDA </a></div>
-        <div class="bar display-btn"><button onclick="TopBar()"><img src="./assets/DisplayIcon.png" alt="display" width="100%"></button></div>
-        <div class="bar playnow-btn"><button class="playnow"">JUGAR AHORA</button></div>
-    </div>
+    <div class="logo-hdr"><a href="index.html"><img src="/assets/RenegadeLogo.png" alt="" width="200px"></a></div>
 
-    <div class="top-bar-display" id="TopMenu">
-        <div class="bar-b bar-btnB1"><a href="./game.html" class="menu"> JUEGO </a></div>
-        <div class="bar-b bar-btnB2"><a href="./zones.html" class="menu"> ZONAS </a></div>
-        <div class="bar-b bar-btnB3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
-        <div class="bar-b bar-btnB4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
-        <div class="bar-b bar-btnB5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
-        <div class="bar-b bar-btnB6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
-        <div class="bar-b bar-btnB7"><a href="./store.html" class="menu"> TIENDA </a></div>
-    </div>
-    <div class="container-body">
+    <div class="container-body body">
         <div class="container main">
+            <div class="form" style="margin-bottom: 40px; position: relative; font-size: 2rem; font-weight: 500;">
+                Registro
+            </div>
             <form action="">
 
                 <div class="form">
-                    <div class="item txt"><label for="nom_completo">Usuario:</label></div>
-                    <div class="item inp"><input type="text" name="nom_completo" id="user" placeholder="Ingrese su nombre de usuario"></div>
+                    <div class="item inp"><input type="text" name="user" id="user" placeholder="NOMBRE DE USUARIO"></div>
                 </div>
 
                 <div class="form">
-                    <div class="item txt"><label for="rut">Correo:</label></div>
-                    <div class="item inp"><input type="text" name="pass" id="email" placeholder="Ingrese su correo electronico"></div>
+
+                    <div class="item inp"><input type="text" name="email" id="email" placeholder="CORREO ELECTRONICO"></div>
                 </div>
 
                 <div class="form">
-                    <div class="item txt"><label for="rut">Contraseña:</label></div>
-                    <div class="item inp"><input type="password" name="pass" id="pass" placeholder="Ingrese contraseña"></div>
+
+                    <div class="item inp"><input type="password" name="pass" id="pass" placeholder="CONTRASEÑA"></div>
                 </div>
 
-                
+
                 <div class="security-level" id="sec-level">
                     <div class="level" id="level"></div>
                 </div>
+                
                 <div class="sec mayus" id="mayus"> Tiene al menos una mayúscula </div>
                 <div class="sec letters" id="letters"> Tiene más de 6 carácteres </div>
                 <div class="sec numbers" id="numbers"> Tiene carácteres numéricos </div>
@@ -209,21 +241,18 @@
                 
                 <div class="form">
 
-                    <div class="item txt"><label for="rut">Repetir Contraseña:</label></div>
-                    <div class="item inp"><input type="password" name="repass" id="repass" placeholder="Ingrese contraseña nuevamente"></div>
+                    <div class="item inp"><input type="password" name="repass" id="repass" placeholder="REPETIR CONTRASEÑA"></div>
                 </div>
 
-                <!--
-                <div>
-                    <input type="submit" value="Ingresar">
-                    <input type="reset" value="Limpiar">
+                <div class="form" style="height: 50px; margin-top: 50px;">
+                    <input type="submit" value="➤" id="sumbit-input" disabled style="cursor:not-allowed;border: 1px solid black;width: 80px; height: 80px; border-radius: 15px; background-color: rgba(0, 0, 0, 0); font-size: 1.5rem; text-align:center; color: rgb(13, 13, 13);" >
                 </div>
 
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            -->
             </form>
         </div>
     </div>
+
+    <div class="bottom-ftr">Este es un registro previo para realizar funciones de "Preorder" del juego, y creacion de perfil de usuario de Renegade ®</div>
 
 
     
