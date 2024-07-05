@@ -1,8 +1,12 @@
+console.log("funciono main");
+
+var modal = document.getElementById("modal");
+var TopMenu = document.getElementById("TopMenu");
+
 var dateMonth = document.getElementById("date-month");
 var dateDay = document.getElementById("date-day");
 var dateYear = document.getElementById("date-year");
 var modal = document.getElementById("modal");
-
 
 var options_strD = "";
 var options_strM = "";
@@ -26,6 +30,31 @@ for(var i = currentYear; i >= currentYear-100; i--){
 dateMonth.innerHTML = options_strM;
 dateDay.innerHTML = options_strD;
 dateYear.innerHTML = options_strY;
+
+function popup(){
+    console.log("mentita");
+    if(modal.style.display == "flex"){
+      console.log("flexeo")
+      modal.style.display = "none"
+    }
+    else{
+      console.log("no flexeo")
+      modal.style.display = "flex"
+    }
+}
+
+function TopBar(){
+
+  if(TopMenu.style.display == "flex"){
+    console.log("flexeo")
+    TopMenu.style.display = "none"
+  }
+  else{
+    console.log("no flexeo")
+    TopMenu.style.display = "flex"
+  }
+
+}
 
 
 function verDate(){

@@ -51,7 +51,7 @@ body{
 
 
 .modal{
-    display: none;
+    display: flex;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -60,6 +60,7 @@ body{
     z-index: 4;
     justify-content: center;
     align-items: center;
+
 }
 
 .popup{
@@ -411,7 +412,7 @@ img{
     transition: width 0.5s cubic-bezier(0.0, 0, 0.32, 1);
 }
 
-a{
+.bar a{
     text-decoration: none;
     padding-left: 20px;
     padding-right: 20px;
@@ -429,28 +430,28 @@ a{
     top: 0;
 }
 
-a:link {
+.bar a:link {
     color: #ededed;
 }
 
-a:disabled{
+.bar a:disabled{
     color: #363636;
 }
 
-a:visited {
+.bar a:visited {
     color: rgb(240, 240, 240);
 }
 
-a:focus {
+.bar a:focus {
     background: #ffffff00;
 }
 
-a:active {
+.bar a:active {
     background: #ffffff00;
     color: #ffffff;
 }
 
-a:hover{
+.bar a:hover{
     width: 25%;
     color: #ff0000;
 }

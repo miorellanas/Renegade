@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renegade</title>
-    <link rel="icon" type="image/x-icon" href="./assets/RenegadeIcon(1).png">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/zone-style.css">
-    <script src="./js/index.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="{% static './assets/RenegadeIcon(1).png' %}">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/zone-style.css' %}">
+    <script src="{% static './js/index.js' %}" defer></script>
 </head>
 
 <body>
     <div class="top-bar">
-        <div class="bar icon"><a href="./index.html"><img src="./assets/RenegadeIcon(1).png" alt="Icon" width="100%"></a></div>
-        <div class="bar bar-btn1"><a href="./game.html" class="menu"> JUEGO </a></div>
-        <div class="bar bar-btn2"><a href="./zones.html" class="menu"> ZONAS </a></div>
-        <div class="bar bar-btn3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
+        <div class="bar icon"><a href="{%url 'index'%}"><img src="{% static './assets/RenegadeIcon(1).png' %}" alt="Icon" width="100%"></a></div>
+        <div class="bar bar-btn1"><a href="{% url 'game' %}" class="menu"> JUEGO </a></div>
+        <div class="bar bar-btn2"><a href="{% url 'zones' %}" class="menu"> ZONAS </a></div>
+        <div class="bar bar-btn3"><a href="{% url 'weapons' %}" class="menu"> ARMAS </a></div>
         <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
         <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
         <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
-        <div class="bar bar-btn7"><a href="./store.html" class="menu"> TIENDA </a></div>
-        <div class="bar display-btn"><button onclick="TopBar()"><img src="./assets/DisplayIcon.png" alt="display" width="100%"></button></div>
-        <div class="bar playnow-btn"><a href="register.html"><button class="playnow">PREORDENA</button></a></div>
+        <div class="bar bar-btn7"><a href="{% url 'store' %}" class="menu"> TIENDA </a></div>
+        <div class="bar display-btn"><button onclick="TopBar()"><img src="{% static './assets/DisplayIcon.png' %}" alt="display" width="100%"></button></div>
+        <div class="bar playnow-btn"><a href="{% url 'register' %}"><button class="playnow">PREORDENA</button></a></div>
     </div>
 
     <div class="top-bar-display" id="TopMenu">
-        <div class="bar-b bar-btnB1"><a href="./game.html" class="menu"> JUEGO </a></div>
-        <div class="bar-b bar-btnB2"><a href="./zones.html" class="menu"> ZONAS </a></div>
-        <div class="bar-b bar-btnB3"><a href="./weapons.html" class="menu"> ARMAS </a></div>
+        <div class="bar-b bar-btnB1"><a href="{% url 'game' %}" class="menu"> JUEGO </a></div>
+        <div class="bar-b bar-btnB2"><a href="{% url 'zones' %}" class="menu"> ZONAS </a></div>
+        <div class="bar-b bar-btnB3"><a href="{% url 'weapons' %}" class="menu"> ARMAS </a></div>
         <div class="bar-b bar-btnB4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
         <div class="bar-b bar-btnB5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
         <div class="bar-b bar-btnB6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
-        <div class="bar-b bar-btnB7"><a href="./store.html" class="menu"> TIENDA </a></div>
+        <div class="bar-b bar-btnB7"><a href="{% url 'store' %}" class="menu"> TIENDA </a></div>
     </div>
 
 
     <div class="container carousel-bg" id="zoneBackground">
         <div class="container carousel">
             <div class="img-carousel">
-                <img src="./assets/images/Precaronte.png" alt="zoneImg" width="70%" id="zoneImage" class="zone-images">
+                <img src="{% static './assets/images/Precaronte.png' %}" alt="zoneImg" width="70%" id="zoneImage" class="zone-images">
                 <div class="carousel-h r-btn"> <button onclick="nextObject()" class="ca-btn">></button></div>
                 <div class="carousel-h l-btn"> <button onclick="prevObject()" class="ca-btn"><</button></div>
                 <div class="carousel-h ca-2" id="zoneSubTittle">El valle del silencio</div>
@@ -53,17 +54,17 @@
             <div class="zone-info icon-info">
                 ESPECIFICACIONES
                 <div class="zone-icon">
-                    <div class="zone-item zitem1"><img src="./assets/ObjectIcon.png" alt="objecticon" width="70px" class="icon-img" ></div>
+                    <div class="zone-item zitem1"><img src="{% static './assets/ObjectIcon.png' %}" alt="objecticon" width="70px" class="icon-img" ></div>
                     <div class="zone-item zitem2"><p class="tittle-info">OBJETO:</p></div>
                     <div class="zone-item zitem3"><p class="info" id="objectName">Ninguno</p></div>
                 </div>
                 <div class="zone-icon">
-                    <div class="zone-item zitem1"><img src="./assets/WeaponIcon.png" alt="weaponicon" width="70px" class="icon-img" ></div>
+                    <div class="zone-item zitem1"><img src="{% static './assets/WeaponIcon.png' %}" alt="weaponicon" width="70px" class="icon-img" ></div>
                     <div class="zone-item zitem2"><p class="tittle-info">ARMAS:</p></div>
                     <div class="zone-item zitem3"><p class="info" id="weaponName">Ninguno</p></div>
                 </div>
                 <div class="zone-icon">
-                    <div class="zone-item zitem1"><img src="./assets/GuardIcon.png" alt="objecticon" width="70px" class="icon-img" ></div>
+                    <div class="zone-item zitem1"><img src="{% static './assets/GuardIcon.png' %}" alt="objecticon" width="70px" class="icon-img" ></div>
                     <div class="zone-item zitem2"><p class="tittle-info">JEFE:</p></div>
                     <div class="zone-item zitem3"><p class="info" id="bossName">Caronte</p></div>
                 </div>

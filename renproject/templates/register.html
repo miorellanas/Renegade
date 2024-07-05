@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renegade</title>
-    <link rel="icon" type="image/x-icon" href="./assets/RenegadeIcon(1).png">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/register-style.css">
+    <link rel="icon" type="image/x-icon" href="{% static './assets/RenegadeIcon(1).png'%}">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/register-style.css'%}">
     <script src="./js/index.js" defer></script>
     <script src="./js/validaciones.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -202,17 +203,34 @@
             })       
         })
     </script>
+
+    <style>
+        .message{
+            font-size: .8rem;
+            color: rgb(141, 3, 3);
+            height: 25px;
+            width: 100%;
+        }
+    </style>
+
 </head>
 
 <body>
-    <div class="logo-hdr"><a href="index.html"><img src="/assets/RenegadeLogo.png" alt="" width="200px"></a></div>
+    <div class="logo-hdr"><a href="{% url 'index' %}"><img src="{% static './assets/RenegadeLogo.png' %}" alt="" width="200px"></a></div>
 
     <div class="container-body body">
         <div class="container main">
             <div class="form" style="margin-bottom: 40px; position: relative; font-size: 2rem; font-weight: 500;">
                 Registro
             </div>
-            <form action="">
+
+            <div>
+                {% for message in messages %}
+                    <div class="message">{{message}}</div>
+                {% endfor %}
+            </div>
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
 
                 <div class="form">
                     <div class="item inp"><input type="text" name="user" id="user" placeholder="NOMBRE DE USUARIO"></div>
@@ -220,7 +238,7 @@
 
                 <div class="form">
 
-                    <div class="item inp"><input type="text" name="email" id="email" placeholder="CORREO ELECTRONICO"></div>
+                    <div class="item inp"><input type="email" name="email" id="email" placeholder="CORREO ELECTRONICO"></div>
                 </div>
 
                 <div class="form">
@@ -245,7 +263,7 @@
                 </div>
 
                 <div class="form" style="height: 50px; margin-top: 50px;">
-                    <input type="submit" value="➤" id="sumbit-input" disabled style="cursor:not-allowed;border: 1px solid black;width: 80px; height: 80px; border-radius: 15px; background-color: rgba(0, 0, 0, 0); font-size: 1.5rem; text-align:center; color: rgb(13, 13, 13);" >
+                    <input type="submit" value="➤" id="sumbit-input" disabled style="cursor:not-allowed;border: 1px solid black;width: 80px; height: 80px; border-radius: 15px; background-color: rgba(0, 0, 0, 0); font-size: 1.5rem; text-align:center; color: rgb(13, 13, 13);" />
                 </div>
 
             </form>

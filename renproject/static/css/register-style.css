@@ -11,14 +11,14 @@ html, body {
     max-height: 100%;
     justify-content: center;
     align-items: center;
-    background-image: url(/assets/images/backgroundArt.jpg);
+    background-image: url("../assets/images/backgroundArt.jpg");
     background-size: cover;
 }
 
 .main{
     display: flex;
     background-size:contain;
-    background-image: url("Renegade/assets/bgTest.png");
+    background-image: none;
     height: 600px;
     width: 600px;    border: 0px solid rgb(35, 35, 35);
     flex-direction: column;

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renegade</title>
+    <link rel="icon" type="image/x-icon" href="{% static './assets/RenegadeIcon(1).png'%}">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/register-style.css'%}">
+    <script src="./js/index.js" defer></script>
+    <script src="./js/validaciones.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+
+        $(document).ready(function () {
+
+            let user = $("#user");
+            let pass = $("#pass");
+
+            let seclevel = $("#sec-level");
+            let level = $("#level");
+            let mayus = $("#mayus");
+            let letters = $("#letters");
+            let numbers = $("#numbers");
+            let special = $("#special");
+
+            let sumbit = $("#sumbit-input");
+
+            let all = false;
+
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            var maFormat = /[A-Z]/;
+    
+            var passCheck = new Array(4).fill(false);
+            console.log(passCheck);
+ 
+            let login = {
+                "username": "",
+                "email": "",
+                "password": ""
+            }
+            console.log(login)
+
+
+            $("#btnValidar").click(function () {
+            
+                login.username = user.val();
+                login.email = email.val();
+                login.password = pass.value;
+                console.log(login);
+            })
+
+            function enableButton(){
+                sumbit.css("color", "rgb(124, 9, 9)");
+                sumbit.css("background-color", "rgb(13, 13, 13)");
+                sumbit.css("border", "0px");
+                sumbit.css("cursor", "pointer");
+                sumbit.prop('disabled', false);
+            }
+
+            function disableButton(){
+                sumbit.css("color", "rgb(13, 13, 13)");
+                sumbit.css("background-color", "rgb(13, 13, 13, 0)");
+                sumbit.css("border", "1px solid rgb(0, 0, 0)");
+                sumbit.css("cursor", "not-allowed");
+                sumbit.prop('disabled', true);
+            }
+
+
+            user.keyup(function () {
+                if(user.val().length >= 1 && email.val().length >= 1 && pass.val().length >= 1 && repass.val().length >= 1){
+                    enableButton();
+                }
+                else{
+                    disableButton();
+                    
+                }
+            })
+
+            pass.keyup(function(){
+                if(user.val().length >= 1 && pass.val().length >= 1 ){
+                    enableButton();
+                }
+                else{
+                    disableButton();
+                }
+            })
+
+                
+                   
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="logo-hdr"><a href="{% url 'index' %}"><img src="{% static './assets/RenegadeLogo.png' %}" alt="" width="200px"></a></div>
+
+    <div class="container-body body">
+        <div class="container main">
+            <div class="form" style="margin-bottom: 40px; position: relative; font-size: 2rem; font-weight: 500;">
+                Login
+            </div>
+
+            <div>
+                {% for message in messages %}
+                    <div class="message">{{message}}</div>
+                {% endfor %}
+            </div>
+            
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+
+                <div class="form">
+                    <div class="item inp"><input type="text" name="user" id="user" placeholder="NOMBRE DE USUARIO"></div>
+                </div>
+
+                <div class="form">
+
+                </div>
+
+                <div class="form">
+
+                    <div class="item inp"><input type="password" name="pass" id="pass" placeholder="CONTRASEÑA"></div>
+                </div>
+
+                <div class="form">
+                    
+                </div>
+                <div class="form">
+                    
+                </div>
+                
+                <div class="form" style="height: 50px; margin-top: 50px;">
+                    <input type="submit" value="➤" id="sumbit-input" disabled style="cursor:not-allowed;border: 1px solid black;width: 80px; height: 80px; border-radius: 15px; background-color: rgba(0, 0, 0, 0); font-size: 1.5rem; text-align:center; color: rgb(13, 13, 13);" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="bottom-ftr">Este es un registro previo para realizar funciones de "Preorder" del juego, y creacion de perfil de usuario de Renegade ®</div>
+
+
+    
+</body>

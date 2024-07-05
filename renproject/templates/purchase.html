@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renegade</title>
+    <link rel="icon" type="image/x-icon" href="{% static './assets/RenegadeIcon(1).png' %}">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+    <link rel="stylesheet" href="{% static './css/purchase-style.css' %}">
+    <!--<script src="{% static './js/validaciones.js' %}" ></script>--> 
+    <!--<script src="{% static './js/date.js' %}"></script>-->
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="bar icon"><a href="{%url 'index'%}"><img src="{% static './assets/RenegadeIcon(1).png' %}" alt="Icon" width="100%"></a></div>
+        <div class="bar bar-btn1"><a href="{% url 'game' %}" class="menu"> JUEGO </a></div>
+        <div class="bar bar-btn2"><a href="{% url 'zones' %}" class="menu"> ZONAS </a></div>
+        <div class="bar bar-btn3"><a href="{% url 'weapons' %}" class="menu"> ARMAS </a></div>
+        <div class="bar bar-btn4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
+        <div class="bar bar-btn5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
+        <div class="bar bar-btn6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
+        <div class="bar bar-btn7"><a href="{% url 'store' %}" class="menu"> TIENDA </a></div>
+        <div class="bar display-btn"><button onclick="TopBar()"><img src="{% static './assets/DisplayIcon.png' %}" alt="display" width="100%"></button></div>
+        <div class="bar playnow-btn"><a href="{% url 'register' %}"><button class="playnow">PREORDENA</button></a></div>
+    </div>
+
+    <div class="top-bar-display" id="TopMenu">
+        <div class="bar-b bar-btnB1"><a href="{% url 'game' %}" class="menu"> JUEGO </a></div>
+        <div class="bar-b bar-btnB2"><a href="{% url 'zones' %}" class="menu"> ZONAS </a></div>
+        <div class="bar-b bar-btnB3"><a href="{% url 'weapons' %}" class="menu"> ARMAS </a></div>
+        <div class="bar-b bar-btnB4"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ENEMIGOS </a></div>
+        <div class="bar-b bar-btnB5"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> ACTUALIZACIONES</a></div>
+        <div class="bar-b bar-btnB6"><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="menu" style="pointer-events: none; color: rgb(93, 93, 93);"> SOBRE NOSOTROS</a></div>
+        <div class="bar-b bar-btnB7"><a href="{% url 'store' %}" class="menu"> TIENDA </a></div>
+    </div>
+
+    <div class="container-body">
+
+        <div class="container">
+
+            <div>
+                <h1></h1>
+                <H1 class="h1-variant">CARRITO</H1>
+            </div>
+
+            <div class="purchase">
+                <div class="banner">
+                    {% for item in shoppingCart %}
+                    <div class="game-banner">
+                        <img src="{{ item.storeItem.baseimg.url }}" alt="" height="163.2px" width="105.6px">
+                        <div class="card-name">
+                            <div>{{item.storeItem.name}}</div>
+                            <div style="font-size: 0.8rem;">{{item.storeItem.description}}</div>
+                        </div>
+                        <div class="card-description price">
+                            <div></div>
+                            <div>${{item.storeItem.price}}USD</div>
+                            <div style="display: flex; justify-content: center; width: 70px;"><a href="{% url 'purchaseD' id=item.cart_id%}" style="font-size: 0.9rem; color: rgb(214, 214, 214);">Remover</a></div>
+                            
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="subtotal">
+                    <div class="b-subtotal total">
+                        <div class="card-name">Subtotal</div> 
+                        <div class="card-name ">${{subTotal}} USD</div>
+                    </div>
+                    <div class="b-subtotal btn">
+                        <button>Ir a pagar</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!--<div class="card">
+                <img src="{{ item.baseimg.url }}" alt="" heigh="408px" width="264px">
+                <div class="card-data">
+                    
+                    <div class="card-type"></div>
+                    <div class="card-description des"></div>
+                    <div class="card-description"></div>
+                    <div class="card-description price">${{item.price}} USD</div>
+                    <div class="card-description"></div>
+                </div>
+            -->
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+

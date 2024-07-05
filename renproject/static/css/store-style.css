@@ -19,7 +19,7 @@ body{
     width: 1200px;
     background-color: #111111;
     background-size:contain;
-    background-image: url("/assets/bgTest.png");
+    background-image: url("../assets/bgTest.png");
     justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap;
@@ -115,14 +115,19 @@ body{
     background-color: #2f2a26;
     font-family: 'pixel-vga';
     width: fit-content;
-    height: 28px;
+    height: 30px;
     border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    text-decoration: none;
+    color:#77726e;
 }
 
-
-
 .habilidad{
-    margin-top: 5px;
+    margin-top: 0px;
     font-size: .9rem;
 }
 

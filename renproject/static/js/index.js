@@ -19,10 +19,10 @@ var TopMenu = document.getElementById("TopMenu");
 
 
 
-let zoneBackgroundA = ["url(./assets/images/Precaronte.png)", "url(./assets/images/Limbo.png)",
-                        "url(./assets/images/Violencia.png)"];
+let zoneBackgroundA = ["url({% static './assets/images/Precaronte.png' %})", "url({% static './assets/images/Limbo.png' %})",
+                        "url({% static './assets/images/Violencia.png' %})"];
 
-let zoneImageA = ["./assets/images/Precaronte.png", "./assets/images/Limbo.png", "./assets/images/Violencia.png"];
+let zoneImageA = ["{% static '../assets/images/Precaronte.png' %}", "{% static '../assets/images/Limbo.png' %}", "{% static './assets/images/Violencia.png' %}"];
 let zoneNameA = ["Aqueronte", "Limbo", "Violencia"];
 let zoneSubTittleA = ["Las almas en cobardía", "El valle del silencio", "El bosque estéril"];
 
@@ -54,9 +54,7 @@ sel.innerHTML = options_str;
 */
 
 
-
-
-
+console.log("test");
 
 
 
